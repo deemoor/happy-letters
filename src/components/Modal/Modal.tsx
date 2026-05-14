@@ -17,7 +17,7 @@ export const Modal: FC<ModalProps> = ({ isOpen, image, title, buttonText, onClic
     <div className={cls.overlay}>
       <div className={cls.modal}>
         <div className={cls.content}>
-          <img src={image}  className={cls.image} alt="success" />
+          <img src={image} className={cls.image} alt="success" />
           <h2 className={cls.title}>{title}</h2>
           <button className={cls.button} onClick={onClick}>
             {buttonText}
