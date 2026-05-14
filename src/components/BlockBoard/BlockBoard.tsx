@@ -6,12 +6,12 @@ import cls from './BlockBoard.module.scss';
 type Props = {
   blocks: BlockType[];
   rightOrder: BlockType[];
+  setStatus: (status: LevelStatusType) => void;
 }
 
-export const BlockBoard:FC<Props> = ({ blocks, rightOrder }) => {
+export const BlockBoard:FC<Props> = ({ blocks, rightOrder, setStatus }) => {
   const [list, setList] = useState(blocks);
   const [activeItem, setActiveItem] = useState<BlockType | null>(null);
-  const [status, setStatus] = useState<LevelStatusType>(LevelStatus.InProgress);
   const [draggedIndex, setDraggedIndex] = useState<number | null>(null);
 
   const onClickItem = (item: BlockType) => {
@@ -75,7 +75,7 @@ export const BlockBoard:FC<Props> = ({ blocks, rightOrder }) => {
           />
         ))}
       </div>
-      <button className={cls.button__check} onClick={checkOrder}>
+      <button className={cls.buttonCheck} onClick={checkOrder}>
         Проверить
       </button>
     </div>
