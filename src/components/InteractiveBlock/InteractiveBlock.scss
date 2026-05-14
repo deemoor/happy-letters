@@ -1,0 +1,19 @@
+.block {
+  width: 100%;
+  max-width: 200px;
+  height: 50px;
+  cursor: pointer;
+  background-color: var(--block-color);
+  border: 3px solid transparent;
+  filter: brightness(0.8);
+  transition: all 0.2s ease;
+
+  &--active {
+    filter: brightness(1);
+    border-color: var(--block-color);
+  }
+
+  &:hover:not(.block--active) {
+    filter: brightness(0.9);
+  }
+}
