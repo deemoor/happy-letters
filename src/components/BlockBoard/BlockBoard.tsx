@@ -1,6 +1,7 @@
 import React, { useState, type FC } from 'react'
 import { LevelStatus, type BlockType, type LevelStatusType } from 'src/config'
 import { InteractiveBlock } from 'src/components';
+import cls from './BlockBoard.module.scss';
 
 type Props = {
   blocks: BlockType[];
@@ -19,16 +20,15 @@ export const BlockBoard:FC<Props> = ({ blocks, rightOrder }) => {
     }
 
     if (activeItem.id !== item.id) {
+      const newList = [...list];
       const fromIndex = list.indexOf(activeItem);
       const toIndex = list.indexOf(item);
-
-      const newList = [...list];
       newList[fromIndex] = item;
       newList[toIndex] = activeItem;
       setList(newList);
     }
 
-    setActiveItem(activeItem?.id === item.id ? item : null);
+    setActiveItem(null);
   }
 
   const checkOrder = () => {
@@ -37,16 +37,15 @@ export const BlockBoard:FC<Props> = ({ blocks, rightOrder }) => {
   };
 
   return (
-    <div className='container'>
-      <div className='blocks'>
+    <div className={cls.container}>
+      <div className={cls.blocks}>
         {list.map(item => (
           <InteractiveBlock data={item} onClick={onClickItem} isActive={activeItem?.id === item.id} />
         ))}
       </div>
-      <button className='button-check' onClick={checkOrder}>
+      <button className={cls.button__check} onClick={checkOrder}>
         Проверить
       </button>
-      <p>{status}</p>
     </div>
   )
 }

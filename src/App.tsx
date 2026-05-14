@@ -1,17 +1,14 @@
 import { Navigate, Route, Routes } from 'react-router-dom'
-import './App.css'
-import { Header } from './components'
-import { LevelPage } from './pages'
+import { Layout, LevelPage } from './pages'
 
 const App = () => {
   return (
-    <div className='wrapper'>
-      <Header />
-      <Routes>
-        <Route path='/' element={<LevelPage />} />
-        <Route path='*' element={<Navigate to="/" />} />
-      </Routes>
-    </div>
+    <Routes>
+      <Route path="/" element={<Layout />}>
+        <Route index element={<LevelPage />} />
+        <Route path="*" element={<Navigate to='/' />} />
+      </Route>
+    </Routes>
   )
 }
 

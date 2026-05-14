@@ -1,0 +1,26 @@
+.block {
+  width: 200px;
+  height: 50px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: var(--block-color);
+  border: 4px solid transparent;
+  border-radius: 10px;
+  transition: all 0.25s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+  cursor: pointer;
+  user-select: none;
+  font-size: 1.1rem;
+  
+  &.isActive {
+    border-color: white; 
+    transform: scale(1.08);
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.2);
+    filter: saturate(1.2);
+  }
+
+  &:hover:not(.isActive) {
+    transform: translateY(-2px);
+    filter: brightness(1.05);
+  }
+}

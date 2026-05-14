@@ -1,6 +1,7 @@
 import React, { type FC } from 'react'
 import type { BlockType } from 'src/config';
-import './InteractiveBlock.scss'
+import clsx from 'clsx';
+import cls from './InteractiveBlock.module.scss';
 
 type Props = {
   data: BlockType,
@@ -11,7 +12,7 @@ type Props = {
 export const InteractiveBlock: FC<Props> = ({ data, onClick, isActive }) => {
   return (
     <div 
-      className={`block ${isActive ? 'block--active' : ''}`} 
+      className={clsx(cls.block, isActive && cls.isActive)}
       onClick={() => onClick(data)}
       style={{ '--block-color': data.color } as React.CSSProperties}
     >
