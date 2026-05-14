@@ -12,6 +12,7 @@ export const BlockBoard:FC<Props> = ({ blocks, rightOrder }) => {
   const [list, setList] = useState(blocks);
   const [activeItem, setActiveItem] = useState<BlockType | null>(null);
   const [status, setStatus] = useState<LevelStatusType>(LevelStatus.InProgress);
+  const [draggedIndex, setDraggedIndex] = useState<number | null>(null);
 
   const onClickItem = (item: BlockType) => {
     if (!activeItem) {
@@ -36,11 +37,42 @@ export const BlockBoard:FC<Props> = ({ blocks, rightOrder }) => {
     setStatus(isCorrect ? LevelStatus.Success : LevelStatus.Error);
   };
 
+  const handleDragStart = (index: number) => {
+    setDraggedIndex(index);
+  };
+
+  const handleDragOver = (e: React.DragEvent, targetIndex: number) => {
+    e.preventDefault();
+    if (draggedIndex === null || draggedIndex === targetIndex) return;
+
+    const newList = [...list];
+    const draggedItem = newList[draggedIndex];
+    newList.splice(draggedIndex, 1);
+    newList.splice(targetIndex, 0, draggedItem);
+    
+    setDraggedIndex(targetIndex);
+    setList(newList);
+  };
+
+  const handleDragEnd = () => {
+    setDraggedIndex(null);
+    setActiveItem(null);
+  };
+
   return (
     <div className={cls.container}>
       <div className={cls.blocks}>
-        {list.map(item => (
-          <InteractiveBlock data={item} onClick={onClickItem} isActive={activeItem?.id === item.id} />
+        {list.map((item, i) => (
+          <InteractiveBlock 
+            data={item} 
+            onClick={onClickItem} 
+            isActive={activeItem?.id === item.id} 
+            isDragging={i === draggedIndex}
+            draggable
+            onDragStart={() => handleDragStart(i)}
+            onDragOver={(e) => handleDragOver(e, i)}
+            onDragEnd={handleDragEnd}
+          />
         ))}
       </div>
       <button className={cls.button__check} onClick={checkOrder}>

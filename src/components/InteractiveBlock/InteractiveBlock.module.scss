@@ -19,6 +19,12 @@
     filter: saturate(1.2);
   }
 
+  &.isDragging {
+    opacity: 0.3;
+    border: 3px dashed var(--grey);
+    background-color: var(--white);
+  }
+
   &:hover:not(.isActive) {
     transform: translateY(-2px);
     filter: brightness(1.05);

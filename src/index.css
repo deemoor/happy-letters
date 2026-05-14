@@ -1,12 +1,13 @@
 /*--------- CONST ----------*/
 :root {
   --font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+  --background: #FFFFFF;
   --white: #FFFFFF;
   --dark: #24262E;
-  --background: #FFFFFF;
-  --border: #c8cdce;
+  --grey: #CCC;
+  --border: #C8CDCE;
   --accent: #42ABE8;
-  --accent-hover: #428fbb;
+  --accent-hover: #428FBB;
   --error: #DF5A5A;
   --success: #4DB84D;
 }
@@ -27,7 +28,7 @@ html,body{
 	min-height: 100%;
 	width: 100%;
 	font-size: 100%;
-	line-height: 1;
+	line-height: 1.1;
 	font-size: 16px;
   font-weight: 600;
   font-family: var(--font-family);
