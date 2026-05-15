@@ -1,0 +1,15 @@
+.header {
+  height: 60px;
+  background: var(--white);
+  box-shadow: rgba(0, 0, 0, 0.07) 0px 20px 20px -20px;
+
+  .wrapper {
+    height: 100%;
+    width: 100%;
+    max-width: 1080px;
+    margin: 0 auto;
+    padding: 20px;
+    display: flex;
+    align-items: center;
+  }
+}

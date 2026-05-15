@@ -1,0 +1,12 @@
+.container {
+  .blocks {
+    position: relative;
+    padding: 24px 30px;
+    width: fit-content;
+    display: flex;
+    flex-direction: column;
+    border: 1px solid var(--border);
+    border-radius: 5px;
+    margin-bottom: 20px;
+  }
+}
