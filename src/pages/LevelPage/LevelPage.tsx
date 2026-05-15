@@ -25,7 +25,7 @@ export const LevelPage = () => {
       <h2 className={cls.title}>Задание: Расположи блоки в следующем порядке</h2>
       <ul className={cls.order}>
         {rightOrder.map(item => (
-          <li>{item.text}</li>
+          <li key={item.id}>{item.text}</li>
         ))}
       </ul>
       {status === LevelStatus.Error &&

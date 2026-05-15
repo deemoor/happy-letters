@@ -20,12 +20,10 @@
   }
 
   &.isDragging {
-    opacity: 0.3;
-    border: 3px dashed var(--grey);
-    background-color: var(--white);
+    transform: scale(1.08);
   }
 
-  &:hover:not(.isActive) {
+  &:hover:not(.isActive):not(.isDragging) {
     transform: translateY(-2px);
     filter: brightness(1.05);
   }
