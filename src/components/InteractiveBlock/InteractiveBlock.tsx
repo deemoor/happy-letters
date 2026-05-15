@@ -1,5 +1,5 @@
 import React, { type FC } from 'react'
-import type { BlockType } from 'src/config';
+import { BLOCK_HEIGHT, type BlockType } from 'src/config';
 import clsx from 'clsx';
 import cls from './InteractiveBlock.module.scss';
 
@@ -27,12 +27,15 @@ export const InteractiveBlock: FC<Props> = ({
   return (
     <div 
       className={clsx(cls.block, isActive && cls.isActive, isDragging && cls.isDragging)}
-      style={{ '--block-color': data.color } as React.CSSProperties}
       onClick={() => onClick(data)}
       draggable={draggable}
       onDragStart={onDragStart}
       onDragOver={onDragOver}
       onDragEnd={onDragEnd}
+      style={{ 
+        '--block-color': data.color, 
+        height: BLOCK_HEIGHT 
+      } as React.CSSProperties}
     >
       {data.text}
     </div>

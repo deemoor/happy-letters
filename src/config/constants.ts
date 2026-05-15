@@ -16,10 +16,13 @@ export const BLOCK_COLORS = [
   '#C689C6',
 ] as const;
 
-export const BLOCK_COUNT = 6;
-
 export const LevelStatus = {
   InProgress: 'inProgress',
   Success: 'completed',
   Error: 'failed',
 } as const;
+
+export const BLOCK_COUNT = 6;
+
+export const BLOCK_HEIGHT = 50;
+export const BLOCKS_GAP = 10;
