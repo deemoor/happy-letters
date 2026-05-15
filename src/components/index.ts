@@ -1,4 +1,5 @@
 export { Header } from './Header/Header';
-export { InteractiveBlock } from './InteractiveBlock/InteractiveBlock';
+export { Block } from './Block/Block';
 export { BlockBoard } from './BlockBoard/BlockBoard';
 export { Modal } from './Modal/Modal';
+export { DraggableBlock } from './DraggableBlock/DraggableBlock';

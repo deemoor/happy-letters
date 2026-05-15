@@ -28,6 +28,7 @@ export const LevelPage = () => {
           <li key={item.id}>{item.text}</li>
         ))}
       </ul>
+      
       {status === LevelStatus.Error &&
         <p className={cls.error}>Порядок не соответствует заданному, попробуй еще раз!</p>
       }

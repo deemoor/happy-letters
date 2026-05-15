@@ -9,3 +9,8 @@ export type BlockType = {
 }
 
 export type LevelStatusType = typeof LevelStatus[keyof typeof LevelStatus];
+
+export type DragStateType = { 
+  activeIdx: number; 
+  hoverIdx: number 
+}
