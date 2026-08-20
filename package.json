@@ -1,6 +1,5 @@
 {
-  "name": "happy-letters",
-  "homepage": "https://deemoor.github.io/happy-letters",
+  "name": "happy-numbers",
   "private": true,
   "version": "0.0.0",
   "type": "module",

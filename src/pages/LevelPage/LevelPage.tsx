@@ -7,7 +7,9 @@ import cls from './LevelPage.module.scss';
 export const LevelPage = () => {
   const [status, setStatus] = useState<LevelStatusType>(LevelStatus.InProgress);
   const [levelData, setLevelData] = useState(createLevelData);
+
   const { rightOrder, blocks } = levelData;
+  const rightOrderStr = rightOrder.map(item => item.text).join(' ➜ ');
 
   function createLevelData() {
     const rightOrder = generateBlocks(BLOCK_COLORS, BLOCK_COUNT);
@@ -22,23 +24,19 @@ export const LevelPage = () => {
 
   return (
     <div className={cls.content}>
-      <h2 className={cls.title}>Задание: Расположи блоки в следующем порядке</h2>
-      <ul className={cls.order}>
-        {rightOrder.map(item => (
-          <li key={item.id}>{item.text}</li>
-        ))}
-      </ul>
+      <h2 className={cls.title}>Task: arrange the blocks in the following order</h2>
+      <p className={cls.order}>{rightOrderStr}</p>
 
       {status === LevelStatus.Error &&
-        <p className={cls.error}>Порядок не соответствует заданному, попробуй еще раз!</p>
+        <p className={cls.error}>The order doesn't match, try again!</p>
       }
       <BlockBoard blocks={blocks} rightOrder={rightOrder} setStatus={setStatus} />
 
-      <Modal 
+      <Modal
         isOpen={status === LevelStatus.Success}
         image={successIcon}
-        title="Победа!"
-        buttonText="Новая игра"
+        title="You win!"
+        buttonText="New game"
         onClick={handleRestart}
       />
     </div>

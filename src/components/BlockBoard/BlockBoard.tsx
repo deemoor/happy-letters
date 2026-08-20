@@ -1,4 +1,4 @@
-import { useState, type FC } from 'react';
+import { useEffect, useState, type FC } from 'react';
 import { type DraggableData } from 'react-draggable';
 import { BLOCK_HEIGHT, BLOCKS_GAP, LevelStatus, type BlockType, type DragStateType, type LevelStatusType } from 'src/config';
 import { Block, DraggableBlock } from 'src/components';
@@ -16,6 +16,10 @@ export const BlockBoard: FC<Props> = ({ blocks, rightOrder, setStatus }) => {
   const [list, setList] = useState(blocks);
   const [activeItem, setActiveItem] = useState<BlockType | null>(null);
   const [dragState, setDragState] = useState<DragStateType | null>(null);
+
+  useEffect(() => {
+    setList(blocks);
+  }, [blocks]);
 
   const handleClickItem = (item: BlockType) => {
     if (!activeItem) {
@@ -95,7 +99,7 @@ export const BlockBoard: FC<Props> = ({ blocks, rightOrder, setStatus }) => {
         ))}
       </div>
       <button className={cls.buttonCheck} onClick={checkOrder}>
-        Проверить
+        Check
       </button>
     </div>
   );
